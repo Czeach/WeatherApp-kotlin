@@ -8,12 +8,9 @@
     android:background="@android:color/background_dark"
     tools:context=".WeatherFragment">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:background="?colorPrimary"
-        android:theme="@style/ToolbarTheme"
+    <include
+        android:id="@+id/include"
+        layout="@layout/toolbar_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -22,13 +19,13 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="20dp"
-        android:textColor="@color/primary"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:text="Lagos"
+        android:textColor="@color/primary"
         android:textSize="50sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        app:layout_constraintTop_toBottomOf="@+id/include" />
 
     <TextView
         android:id="@+id/textView"
