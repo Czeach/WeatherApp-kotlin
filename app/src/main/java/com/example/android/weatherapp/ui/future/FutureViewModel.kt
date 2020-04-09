@@ -1,4 +1,4 @@
-package com.example.android.weatherapp.future
+package com.example.android.weatherapp.ui.future
 
 import androidx.lifecycle.ViewModel
 

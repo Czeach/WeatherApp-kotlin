@@ -8,7 +8,16 @@
 
     <fragment
         android:id="@+id/weatherFragment"
-        android:name="com.example.android.weatherapp.current.CurrentFragment"
+        android:name="com.example.android.weatherapp.ui.current.CurrentFragment"
         android:label="weather_fragment"
-        tools:layout="@layout/weather_fragment" />
+        tools:layout="@layout/weather_fragment" >
+        <action
+            android:id="@+id/action_weatherFragment_to_futureFragment"
+            app:destination="@id/futureFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/futureFragment"
+        android:name="com.example.android.weatherapp.ui.future.FutureFragment"
+        android:label="future_fragment"
+        tools:layout="@layout/future_fragment" />
 </navigation>
