@@ -23,14 +23,13 @@ class FutureFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.future_fragment, container, false)
-
-        
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(FutureViewModel::class.java)
         // TODO: Use the ViewModel
+
     }
 
 }
