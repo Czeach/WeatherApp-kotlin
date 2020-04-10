@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.NavController
+import androidx.navigation.ui.AppBarConfiguration
 import com.example.android.weatherapp.R
 
 
@@ -17,12 +19,11 @@ class CurrentFragment : Fragment() {
 
     private lateinit var viewModel: CurrentViewModel
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.weather_fragment, container, false)
+        return inflater.inflate(R.layout.current_fragment, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -30,7 +31,6 @@ class CurrentFragment : Fragment() {
         viewModel = ViewModelProviders.of(this).get(CurrentViewModel::class.java)
         // TODO: Use the ViewModel
     }
-
 
 
 }
