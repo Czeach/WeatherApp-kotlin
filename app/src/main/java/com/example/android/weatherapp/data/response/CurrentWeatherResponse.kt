@@ -1,6 +1,4 @@
-package com.example.android.weatherapp.response
-
-import com.google.gson.annotations.SerializedName
+package com.example.android.weatherapp.data.response
 
 
 data class CurrentWeatherResponse(

@@ -1,7 +1,5 @@
-package com.example.android.weatherapp.response
+package com.example.android.weatherapp.data.response
 
-
-import com.google.gson.annotations.SerializedName
 
 data class Sys(
     val country: String,
