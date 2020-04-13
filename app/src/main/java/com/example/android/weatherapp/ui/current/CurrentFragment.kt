@@ -33,17 +33,11 @@ class CurrentFragment : Fragment() {
         val binding = CurrentFragmentBinding.inflate(inflater)
         viewModel = ViewModelProviders.of(this).get(CurrentViewModel::class.java)
 
-//        val futureDays = binding.futureDays
-//        futureDays?.setOnClickListener {
-//            findNavController().navigate(R.id.futureFragment, null)
-//        }
-
-        val apiService = OpenWeatherMapApiService()
-
-        GlobalScope.launch(Dispatchers.Main) {
-            val currentWeatherResponse = apiService.getCurrentWeather().await()
-            binding.apiText.text = currentWeatherResponse.weather.toString()
+        val futureDays = binding.futureDays
+        futureDays.setOnClickListener {
+            findNavController().navigate(R.id.futureFragment, null)
         }
+
 
         return binding.root
     }
