@@ -15,24 +15,6 @@ const val API_KEY = "c71d7cc39b34e871d2c9525737fdd3b8"
 
 //    BASE_URL = "https://api.openweathermap.org/data/2.5/weather?q=Enugu,Enugu&appid=c71d7cc39b34e871d2c9525737fdd3b8"
 
-//private const val BASE_URL = "https://api.openweathermap.org/data/2.5/"
-//
-//private val retrofit = Retrofit.Builder()
-//    .addConverterFactory(GsonConverterFactory.create())
-//    .addCallAdapterFactory(CoroutineCallAdapterFactory())
-//    .baseUrl(BASE_URL).build()
-//
-//interface OpenWeatherMapApiService {
-//    @GET("weather?q=Enugu,Enugu&appid=c71d7cc39b34e871d2c9525737fdd3b8")
-//    suspend fun getProperties(): ArrayList<CurrentWeatherResponse>
-//}
-//
-//object WeatherApi{
-//    val retrofitService: OpenWeatherMapApiService by lazy {
-//        retrofit.create(OpenWeatherMapApiService::class.java)
-//    }
-//}
-
 // Retrofit will fetch the data from this API
 interface OpenWeatherMapApiService {
 
