@@ -6,19 +6,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.navigation.NavController
-import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.AppBarConfiguration
 import com.example.android.weatherapp.R
 import com.example.android.weatherapp.data.OpenWeatherMapApiService
-import com.example.android.weatherapp.data.response.CurrentWeatherResponse
 //import com.example.android.weatherapp.databinding.CurrentFragmentBinding
 import kotlinx.android.synthetic.main.current_fragment.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import okhttp3.Dispatcher
 
 
 class CurrentFragment : Fragment() {
