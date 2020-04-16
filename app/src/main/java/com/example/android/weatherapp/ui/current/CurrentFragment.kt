@@ -50,7 +50,7 @@ class CurrentFragment : Fragment() {
         GlobalScope.launch(Dispatchers.Main) {
             val currentWeather = apiService.getCurrentWeather().await()
             try{
-                testing.text = currentWeather.toString()
+                testing.text = currentWeather.weather.toString()
             }catch (e: Exception) {
                 testing.text = "Failure: " + e.message
             }

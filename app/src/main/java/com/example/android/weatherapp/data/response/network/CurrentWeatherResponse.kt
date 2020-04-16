@@ -1,6 +1,6 @@
 package com.example.android.weatherapp.data.response.network
 
-import com.example.android.weatherapp.data.database.entity.*
+import com.example.android.weatherapp.data.database.entities.*
 
 
 data class CurrentWeatherResponse(
