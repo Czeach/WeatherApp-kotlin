@@ -9,9 +9,13 @@ const val WIND_PRIMARY_KEY = 2
 data class Wind(
 
     // assign a primary key to the entity
-    @PrimaryKey(autoGenerate = false)
-    var windPrimaryKey: Int = WIND_PRIMARY_KEY,
+//    @PrimaryKey(autoGenerate = false)
+//    var windPrimaryKey: Int = WIND_PRIMARY_KEY,
 
     val deg: Int,
     val speed: Double
-)
+) {
+    // assign a primary key to the entity
+    @PrimaryKey(autoGenerate = false)
+    var windPrimaryKey: Int = WIND_PRIMARY_KEY
+}

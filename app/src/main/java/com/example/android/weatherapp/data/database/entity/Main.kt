@@ -11,8 +11,8 @@ const val MAIN_PRIMARY_KEY = 1
 data class Main(
 
     // assign a primary key to the entity
-    @PrimaryKey (autoGenerate = false)
-    var mainPrimaryKey: Int = MAIN_PRIMARY_KEY,
+//    @PrimaryKey (autoGenerate = false)
+//    var mainPrimaryKey: Int = MAIN_PRIMARY_KEY,
 
     @SerializedName("feels_like")
     val feelsLike: Double,
@@ -23,4 +23,7 @@ data class Main(
     val tempMax: Double,
     @SerializedName("temp_min")
     val tempMin: Double
-)
+) {
+    @PrimaryKey (autoGenerate = false)
+    var mainPrimaryKey: Int = MAIN_PRIMARY_KEY
+}

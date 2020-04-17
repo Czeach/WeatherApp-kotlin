@@ -9,11 +9,15 @@ const val WEATHER_PRIMARY_KEY = 0
 data class Weather(
 
     // assign a primary key to the entity
-    @PrimaryKey (autoGenerate = false)
-    var weatherPrimaryKey: Int = WEATHER_PRIMARY_KEY,
+//    @PrimaryKey (autoGenerate = false)
+//    var weatherPrimaryKey: Int = WEATHER_PRIMARY_KEY,
 
     val description: String,
     val icon: String,
     val id: Int,
     val main: String
-)
+) {
+    // assign a primary key to the entity
+    @PrimaryKey (autoGenerate = false)
+    var weatherPrimaryKey: Int = WEATHER_PRIMARY_KEY
+}
