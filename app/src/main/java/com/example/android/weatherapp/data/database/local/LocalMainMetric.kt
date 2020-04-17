@@ -3,7 +3,9 @@ package com.example.android.weatherapp.data.database.local
 import androidx.room.ColumnInfo
 
 data class LocalMainMetric(
-    @ColumnInfo(name = "feels_like")
+    @ColumnInfo(name = "mainPrimaryKey")
+    override var mainPrimaryKey: Int,
+    @ColumnInfo(name = "feelsLike")
     override val feelsLike: Double,
     @ColumnInfo(name = "humidity")
     override val humidity: Int,
@@ -11,9 +13,9 @@ data class LocalMainMetric(
     override val pressure: Int,
     @ColumnInfo(name = "temp")
     override val temperature: Double,
-    @ColumnInfo(name = "temp_max")
+    @ColumnInfo(name = "tempMax")
     override val temperatureMax: Double,
-    @ColumnInfo(name = "temp_min")
+    @ColumnInfo(name = "tempMin")
     override val temperatureMin: Double
 
 ) : LocalMain

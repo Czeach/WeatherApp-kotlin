@@ -3,6 +3,8 @@ package com.example.android.weatherapp.data.database.local
 import androidx.room.ColumnInfo
 
 data class LocalWeatherMetric(
+    @ColumnInfo(name = "weatherPrimaryKey")
+    override var weatherPrimaryKey: Int,
     @ColumnInfo(name = "description")
     override val description: String,
     @ColumnInfo(name = "icon")
