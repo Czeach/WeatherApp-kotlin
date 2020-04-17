@@ -1,4 +1,4 @@
-package com.example.android.weatherapp.data.database.entities
+package com.example.android.weatherapp.data.database.entity
 
 
 data class Coord(

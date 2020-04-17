@@ -1,4 +1,4 @@
-package com.example.android.weatherapp.data.database.entities
+package com.example.android.weatherapp.data.database.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -16,8 +16,4 @@ data class Weather(
     val icon: String,
     val id: Int,
     val main: String
-) {
-    // assign a primary key to the entity
-//    @PrimaryKey (autoGenerate = false)
-//    var weatherPrimaryKey: Int = WEATHER_PRIMARY_KEY
-}
+)
