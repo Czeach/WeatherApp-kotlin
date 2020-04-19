@@ -2,9 +2,11 @@ package com.example.android.weatherapp.network
 
 import com.example.android.weatherapp.domain.CurrentWeather
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import kotlinx.coroutines.Deferred
 import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
 
 
@@ -14,11 +16,17 @@ interface OpenWeatherMapApiService {
     fun getCurrentWeather(): Deferred<CurrentWeather>
 }
 
+private val moshi = Moshi.Builder()
+    .add(KotlinJsonAdapterFactory())
+    .build()
+
+
 object Network {
     private val retrofit = Retrofit.Builder()
-        .addConverterFactory(GsonConverterFactory.create())
+        .baseUrl("https://api.openweathermap.org/data/2.5/")
+        .addConverterFactory(MoshiConverterFactory.create(moshi))
         .addCallAdapterFactory(CoroutineCallAdapterFactory())
-        .baseUrl("https://api.openweathermap.org/data/2.5/").build()
+        .build()
 
     val weatherInfo = retrofit.create(OpenWeatherMapApiService::class.java)
 }

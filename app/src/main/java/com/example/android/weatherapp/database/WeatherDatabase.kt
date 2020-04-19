@@ -3,13 +3,9 @@ package com.example.android.weatherapp.database
 import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.example.android.weatherapp.domain.Main
-import com.example.android.weatherapp.domain.Sys
-import com.example.android.weatherapp.domain.Weather
-import com.example.android.weatherapp.domain.Wind
 
 @Dao
-interface WeatherDao {
+interface CurrentWeatherDao {
     @Query("select * from current_weather where primaryKey = $PRIMARY_KEY")
     fun getVideos() : LiveData<List<DatabaseCurrentWeather>>
 
@@ -19,15 +15,17 @@ interface WeatherDao {
 
 @Database(
     // add entities into the database
-    entities = [Weather::class, Main::class, Wind::class, Sys::class],
+    entities = [DatabaseCurrentWeather::class],
     version = 1
 )
 abstract class WeatherDatabase : RoomDatabase() {
     // create instances of the DAOs
-//    abstract val weatherDao: WeatherDao
+//    abstract val weatherDao: CurrentWeatherDao
 //    abstract val mainDao: MainDao
 //    abstract val windDao: WindDao
 //    abstract val sysDao: SysDao
+
+    abstract val currentWeatherDao: CurrentWeatherDao
 }
 
     private lateinit var INSTANCE: WeatherDatabase

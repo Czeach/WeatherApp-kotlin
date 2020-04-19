@@ -11,7 +11,7 @@ package com.example.android.weatherapp.database.Dao
 //
 //
 //@Dao
-//interface WeatherDao {
+//interface CurrentWeatherDao {
 //
 //    // Insert and save the weather data class
 //    @Insert(onConflict = OnConflictStrategy.REPLACE)
