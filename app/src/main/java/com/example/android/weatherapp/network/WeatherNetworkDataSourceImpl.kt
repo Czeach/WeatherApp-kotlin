@@ -1,21 +1,20 @@
-package com.example.android.weatherapp.data.response.network
+package com.example.android.weatherapp.network
 
 import android.util.Log
-import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.example.android.weatherapp.domain.CurrentWeather
 import com.example.android.weatherapp.internal.NoConnectionException
-import kotlinx.android.synthetic.main.current_fragment.*
 
 // this class is an implementation of the WeatherNetworkDataSource interface
 class WeatherNetworkDataSourceImpl(
     private val openWeatherMapApiService: OpenWeatherMapApiService
 ) : WeatherNetworkDataSource {
 
-    // create a variable that gets a MutableLiveData of CurrentWeatherResponse
-    private val _downloadedCurrentWeather = MutableLiveData<CurrentWeatherResponse>()
+    // create a variable that gets a MutableLiveData of CurrentWeather
+    private val _downloadedCurrentWeather = MutableLiveData<CurrentWeather>()
     // cast the MutableLiveData gotten above to LiveData
-    override val downloadedCurrentWeather: LiveData<CurrentWeatherResponse>
+    override val downloadedCurrentWeather: LiveData<CurrentWeather>
         get() = _downloadedCurrentWeather
 
     override suspend fun fetchCurrentWeather() {

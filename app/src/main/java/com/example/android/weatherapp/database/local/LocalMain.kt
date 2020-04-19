@@ -1,6 +1,4 @@
-package com.example.android.weatherapp.data.database.local
-
-import com.google.gson.annotations.SerializedName
+package com.example.android.weatherapp.database.local
 
 interface LocalMain {
     var mainPrimaryKey: Int

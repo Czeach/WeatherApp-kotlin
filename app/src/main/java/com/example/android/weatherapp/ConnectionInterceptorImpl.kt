@@ -1,4 +1,4 @@
-package com.example.android.weatherapp.data.response
+package com.example.android.weatherapp
 
 import android.content.Context
 import android.net.ConnectivityManager
@@ -6,7 +6,8 @@ import com.example.android.weatherapp.internal.NoConnectionException
 import okhttp3.Interceptor
 import okhttp3.Response
 
-class ConnectionInterceptorImpl(context: Context) : ConnectionInterceptor {
+class ConnectionInterceptorImpl(context: Context) :
+    ConnectionInterceptor {
 
     private val appContext = context.applicationContext
 

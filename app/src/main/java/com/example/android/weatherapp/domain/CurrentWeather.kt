@@ -1,9 +1,9 @@
-package com.example.android.weatherapp.data.response.network
-
-import com.example.android.weatherapp.data.database.entity.*
+package com.example.android.weatherapp.domain
 
 
-data class CurrentWeatherResponse(
+// Domain objects are plain Kotlin data classes that represent the things in our app. These are the
+// objects that should be displayed on screen, or manipulated by the app.
+data class CurrentWeather constructor(
     val base: String,
     val clouds: Clouds,
     val cod: Int,
