@@ -20,9 +20,11 @@ class WeatherNetworkDataSourceImpl(
 
     override suspend fun fetchCurrentWeather() {
         try {
+            // fetch CurrentWeather from the api service
             val fetchedCurrentWeather = openWeatherMapApiService
                 .getCurrentWeather()
                 .await()
+            // set downloadedCurrentWeather to fetchedCurrentWeather
             _downloadedCurrentWeather.postValue(fetchedCurrentWeather)
         } catch (e: NoConnectionException) {
             Log.e("Connection", "No internet connection", e)
