@@ -1,4 +1,4 @@
-package com.example.android.weatherapp
+package com.example.android.weatherapp.network
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import retrofit2.Retrofit
