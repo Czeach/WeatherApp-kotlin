@@ -6,13 +6,18 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import com.example.android.weatherapp.R
+import com.example.android.weatherapp.models.CurrentWeather
 import com.example.android.weatherapp.network.Network
 import com.example.android.weatherapp.network.OpenWeatherMapApi
 import kotlinx.android.synthetic.main.current_fragment.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 class CurrentFragment : Fragment() {
@@ -45,13 +50,24 @@ class CurrentFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        viewModel = ViewModelProviders.of(this).get(CurrentViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(CurrentViewModel::class.java)
 
-        GlobalScope.launch(Dispatchers.Main) {
-            val current = Network.weather.getWeather()
-            testing.text = current.toString()
-        }
+        Network.weather.getWeather().enqueue(object : Callback<CurrentWeather?> {
+            override fun onFailure(call: Call<CurrentWeather?>, t: Throwable) {
+                testing.text = t.localizedMessage
+            }
+
+            override fun onResponse(
+                call: Call<CurrentWeather?>,
+                response: Response<CurrentWeather?>
+            ) {
+                testing.text = response.body().toString()
+            }
+        })
+
     }
+
+
 
 
 }
