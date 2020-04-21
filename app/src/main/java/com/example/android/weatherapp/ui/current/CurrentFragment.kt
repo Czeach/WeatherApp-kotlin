@@ -7,6 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.android.weatherapp.R
+import com.example.android.weatherapp.network.Network
+import com.example.android.weatherapp.network.OpenWeatherMapApi
+import kotlinx.android.synthetic.main.current_fragment.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -35,6 +38,7 @@ class CurrentFragment : Fragment() {
 //        }
 
 
+
 //        return binding.root
     }
 
@@ -43,6 +47,10 @@ class CurrentFragment : Fragment() {
 
         viewModel = ViewModelProviders.of(this).get(CurrentViewModel::class.java)
 
+        GlobalScope.launch(Dispatchers.Main) {
+            val current = Network.weather.getWeather()
+            testing.text = current.toString()
+        }
     }
 
 
