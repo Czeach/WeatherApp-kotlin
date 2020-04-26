@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/currentFragment"
-        android:name="com.example.android.weatherapp.ui.current.CurrentFragment"
+        android:name="com.example.android.weatherapp.ui.CurrentFragment"
         android:label="weather_fragment"
         tools:layout="@layout/current_fragment" >
         <action
@@ -17,7 +17,7 @@
     </fragment>
     <fragment
         android:id="@+id/futureFragment"
-        android:name="com.example.android.weatherapp.ui.future.FutureFragment"
+        android:name="com.example.android.weatherapp.ui.FutureFragment"
         android:label="future_fragment"
         tools:layout="@layout/future_fragment" />
 </navigation>

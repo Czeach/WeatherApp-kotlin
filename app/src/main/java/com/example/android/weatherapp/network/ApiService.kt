@@ -23,6 +23,7 @@ object Network {
     private val retrofit = Retrofit.Builder()
         .baseUrl("https://api.openweathermap.org/data/2.5/")
         .addConverterFactory(GsonConverterFactory.create())
+        .addCallAdapterFactory(CoroutineCallAdapterFactory())
         .build()
 
     val weather = retrofit.create(OpenWeatherMapApi::class.java)

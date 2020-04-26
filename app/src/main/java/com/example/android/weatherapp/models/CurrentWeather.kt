@@ -1,20 +1,36 @@
 package com.example.android.weatherapp.models
 
 
-import com.google.gson.annotations.SerializedName
+import androidx.room.Embedded
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
+const val PRIMARY_KEY = 1
+
+@Entity(tableName = "current_weather")
 data class CurrentWeather(
+    @PrimaryKey(autoGenerate = false)
+    var primaryKey: Int = PRIMARY_KEY,
     val base: String,
-    val clouds: Clouds,
+    @Embedded(prefix = "clouds_")
+    val clouds: Clouds?,
     val cod: Int,
-    val coord: Coord,
+    @Embedded(prefix = "coord_")
+    val coord: Coord?,
     val dt: Int,
     val id: Int,
-    val main: Main,
+    @Embedded(prefix = "main_")
+    val main: Main?,
     val name: String,
-    val sys: Sys,
+    @Embedded(prefix = "sys_")
+    val sys: Sys?,
     val timezone: Int,
     val visibility: Int,
-    val weather: List<Weather>,
-    val wind: Wind
-)
+    @Embedded(prefix = "weather_")
+    val weather: List<Weather>?,
+    @Embedded(prefix = "wind_")
+    val wind: Wind?
+) {
+    constructor() : this(0, "", null, 0, null, 0, 0,
+        null, "", null,0,0,null, null)
+}

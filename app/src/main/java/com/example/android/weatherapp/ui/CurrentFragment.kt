@@ -1,6 +1,5 @@
-package com.example.android.weatherapp.ui.current
+package com.example.android.weatherapp.ui
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,11 +9,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.android.weatherapp.R
 import com.example.android.weatherapp.models.CurrentWeather
 import com.example.android.weatherapp.network.Network
-import com.example.android.weatherapp.network.OpenWeatherMapApi
+import com.example.android.weatherapp.viewModel.CurrentViewModel
 import kotlinx.android.synthetic.main.current_fragment.*
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -26,7 +22,13 @@ class CurrentFragment : Fragment() {
         fun newInstance() = CurrentFragment()
     }
 
-    private lateinit var viewModel: CurrentViewModel
+    private val viewModel: CurrentViewModel by lazy {
+        val activity = requireNotNull(this.activity) {
+            "You can only access the viewModel after onActivityCreated()"
+        }
+        ViewModelProvider(this, CurrentViewModel.Factory(activity.application))
+            .get(CurrentViewModel::class.java)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -49,8 +51,6 @@ class CurrentFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
-        viewModel = ViewModelProvider(this).get(CurrentViewModel::class.java)
 
         Network.weather.getWeather().enqueue(object : Callback<CurrentWeather?> {
             override fun onFailure(call: Call<CurrentWeather?>, t: Throwable) {

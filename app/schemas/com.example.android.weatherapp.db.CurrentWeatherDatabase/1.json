@@ -1,0 +1,172 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "2db53667dd40ec3daf7959c29db5f3fd",
+    "entities": [
+      {
+        "tableName": "current_weather",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`primaryKey` INTEGER NOT NULL, `base` TEXT NOT NULL, `cod` INTEGER NOT NULL, `dt` INTEGER NOT NULL, `id` INTEGER NOT NULL, `name` TEXT NOT NULL, `timezone` INTEGER NOT NULL, `visibility` INTEGER NOT NULL, `clouds_all` INTEGER, `coord_lat` REAL, `coord_lon` REAL, `main_feelsLike` REAL, `main_humidity` INTEGER, `main_pressure` INTEGER, `main_temp` REAL, `main_tempMax` REAL, `main_tempMin` REAL, `sys_country` TEXT, `sys_id` INTEGER, `sys_sunrise` INTEGER, `sys_sunset` INTEGER, `sys_type` INTEGER, `wind_deg` INTEGER, `wind_speed` REAL, PRIMARY KEY(`primaryKey`))",
+        "fields": [
+          {
+            "fieldPath": "primaryKey",
+            "columnName": "primaryKey",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "base",
+            "columnName": "base",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cod",
+            "columnName": "cod",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dt",
+            "columnName": "dt",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "timezone",
+            "columnName": "timezone",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "visibility",
+            "columnName": "visibility",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "clouds.all",
+            "columnName": "clouds_all",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "coord.lat",
+            "columnName": "coord_lat",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "coord.lon",
+            "columnName": "coord_lon",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "main.feelsLike",
+            "columnName": "main_feelsLike",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "main.humidity",
+            "columnName": "main_humidity",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "main.pressure",
+            "columnName": "main_pressure",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "main.temp",
+            "columnName": "main_temp",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "main.tempMax",
+            "columnName": "main_tempMax",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "main.tempMin",
+            "columnName": "main_tempMin",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sys.country",
+            "columnName": "sys_country",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sys.id",
+            "columnName": "sys_id",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sys.sunrise",
+            "columnName": "sys_sunrise",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sys.sunset",
+            "columnName": "sys_sunset",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sys.type",
+            "columnName": "sys_type",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "wind.deg",
+            "columnName": "wind_deg",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "wind.speed",
+            "columnName": "wind_speed",
+            "affinity": "REAL",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "primaryKey"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '2db53667dd40ec3daf7959c29db5f3fd')"
+    ]
+  }
+}

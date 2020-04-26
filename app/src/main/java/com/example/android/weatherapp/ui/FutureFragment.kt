@@ -1,4 +1,4 @@
-package com.example.android.weatherapp.ui.future
+package com.example.android.weatherapp.ui
 
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
@@ -6,9 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
 
 import com.example.android.weatherapp.R
+import com.example.android.weatherapp.viewModel.FutureViewModel
 
 class FutureFragment : Fragment() {
 
