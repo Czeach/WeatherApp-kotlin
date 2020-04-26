@@ -4,21 +4,20 @@ import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.android.weatherapp.models.CurrentWeather
-import com.example.android.weatherapp.models.PRIMARY_KEY
 import retrofit2.Call
 
 
 @Dao
 interface CurrentWeatherDao {
-    @Query("select * from current_weather where primaryKey = $PRIMARY_KEY")
-    fun getCurrentWeather(): LiveData<List<CurrentWeather>>
+    @Query("select * from current_weather")
+    fun getCurrentWeather(): LiveData<List<DatabaseCurrentWeather>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun upsert(currentWeather: CurrentWeather)
+    fun upsert(currentWeather: DatabaseCurrentWeather)
 }
 
 @Database(
-    entities = arrayOf(CurrentWeather::class),
+    entities = [DatabaseCurrentWeather::class],
     version = 1
 )
 abstract class CurrentWeatherDatabase: RoomDatabase() {
