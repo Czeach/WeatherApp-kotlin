@@ -3,6 +3,7 @@ package com.example.android.weatherapp.db
 import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import com.example.android.weatherapp.Converters
 import com.example.android.weatherapp.models.CurrentData
 
 
@@ -19,6 +20,7 @@ interface CurrentDataDao {
     entities = [DatabaseCurrentData::class],
     version = 1
 )
+@TypeConverters(Converters::class)
 abstract class CurrentDataDatabase: RoomDatabase() {
     abstract val currentDataDao: CurrentDataDao
 

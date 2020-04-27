@@ -6,13 +6,10 @@ import androidx.room.PrimaryKey
 import com.example.android.weatherapp.models.CurrentData
 import com.example.android.weatherapp.models.Data
 
-const val PRIMARY_KEY = 1
-
 @Entity(tableName = "current_data")
 data class DatabaseCurrentData constructor(
     @PrimaryKey
     val count: Int,
-    @Embedded(prefix = "data_")
     val data: List<Data>
 )
 

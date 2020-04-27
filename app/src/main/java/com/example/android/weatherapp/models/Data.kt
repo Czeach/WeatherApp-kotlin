@@ -1,6 +1,7 @@
 package com.example.android.weatherapp.models
 
 
+import androidx.room.Embedded
 import com.google.gson.annotations.SerializedName
 
 data class Data(
@@ -45,6 +46,7 @@ data class Data(
     val ts: Int,
     val uv: Double,
     val vis: Double,
+    @Embedded(prefix = "weather_")
     val weather: Weather,
     @SerializedName("wind_cdir")
     val windCdir: String,
