@@ -3,41 +3,37 @@ package com.example.android.weatherapp.db
 import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import com.example.android.weatherapp.models.CurrentData
 
 
 @Dao
-interface CurrentWeatherDao {
-    @Query("select * from current_weather")
-    fun getCurrentWeather(): LiveData<List<DatabaseCurrentWeather>>
+interface CurrentDataDao {
+    @Query("select * from current_data")
+    fun getCurrentWeather(): LiveData<List<DatabaseCurrentData>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun upsert(currentWeather: DatabaseCurrentWeather)
+    fun upsert(currentData: DatabaseCurrentData)
 }
 
 @Database(
-    entities = [DatabaseCurrentWeather::class],
+    entities = [DatabaseCurrentData::class],
     version = 1
 )
-abstract class CurrentWeatherDatabase: RoomDatabase() {
-    abstract val currentWeatherDao: CurrentWeatherDao
+abstract class CurrentDataDatabase: RoomDatabase() {
+    abstract val currentDataDao: CurrentDataDao
 
     companion object {
-        private var INSTANCE: CurrentWeatherDatabase? = null
+        private lateinit var INSTANCE: CurrentDataDatabase
 
-        fun getDatabase(context: Context): CurrentWeatherDatabase {
-            val tempInstance = INSTANCE
-            if (tempInstance != null) {
-                return tempInstance
+        fun getDatabase(context: Context): CurrentDataDatabase {
+            synchronized(CurrentDataDatabase::class.java) {
+                if (!::INSTANCE.isInitialized) {
+                    INSTANCE = Room.databaseBuilder(context.applicationContext,
+                        CurrentDataDatabase::class.java,
+                        "current_data").build()
+                }
             }
-            synchronized(this){
-                val instance = Room.databaseBuilder(
-                    context.applicationContext,
-                    CurrentWeatherDatabase::class.java,
-                    "current_weather_database"
-                ).build()
-                INSTANCE = instance
-                return instance
-            }
+            return INSTANCE
         }
     }
 }

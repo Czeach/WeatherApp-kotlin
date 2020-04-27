@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import com.example.android.weatherapp.R
-import com.example.android.weatherapp.db.CurrentWeather
+import com.example.android.weatherapp.models.CurrentData
 import com.example.android.weatherapp.network.Network
 import com.example.android.weatherapp.viewModel.CurrentViewModel
 import kotlinx.android.synthetic.main.current_fragment.*
@@ -52,14 +52,14 @@ class CurrentFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        Network.weather.getWeather().enqueue(object : Callback<CurrentWeather?> {
-            override fun onFailure(call: Call<CurrentWeather?>, t: Throwable) {
+        Network.data.getWeather().enqueue(object : Callback<CurrentData?> {
+            override fun onFailure(call: Call<CurrentData?>, t: Throwable) {
                 testing.text = t.localizedMessage
             }
 
             override fun onResponse(
-                call: Call<CurrentWeather?>,
-                response: Response<CurrentWeather?>
+                call: Call<CurrentData?>,
+                response: Response<CurrentData?>
             ) {
                 testing.text = response.body().toString()
             }
