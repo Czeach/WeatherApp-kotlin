@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import com.example.android.weatherapp.R
+import com.example.android.weatherapp.databinding.CurrentFragmentBinding
 import com.example.android.weatherapp.models.CurrentData
 import com.example.android.weatherapp.network.Network
 import com.example.android.weatherapp.viewModel.CurrentViewModel
@@ -22,21 +23,18 @@ class CurrentFragment : Fragment() {
         fun newInstance() = CurrentFragment()
     }
 
+    // One way to delay creation of the viewModel until an appropriate lifecycle method is to use lazy.
+    // This requires that viewModel not be referenced before onActivityCreated, which we do in this Fragment.
     private val viewModel: CurrentViewModel by lazy {
-        val activity = requireNotNull(this.activity) {
-            "You can only access the viewModel after onActivityCreated()"
-        }
-        ViewModelProvider(this, CurrentViewModel.Factory(activity.application))
+        ViewModelProvider(this, CurrentViewModel.Factory(activity!!.application))
             .get(CurrentViewModel::class.java)
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
-        return inflater.inflate(R.layout.current_fragment, container, false)
-
         // instantiate view binding
-//        val binding = CurrentFragmentBinding.inflate(inflater)
+        val binding = CurrentFragmentBinding.inflate(inflater)
 
 
 //        val futureDays = binding.futureDays
@@ -46,24 +44,24 @@ class CurrentFragment : Fragment() {
 
 
 
-//        return binding.root
+        return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        Network.data.getWeather().enqueue(object : Callback<CurrentData?> {
-            override fun onFailure(call: Call<CurrentData?>, t: Throwable) {
-                testing.text = t.localizedMessage
-            }
-
-            override fun onResponse(
-                call: Call<CurrentData?>,
-                response: Response<CurrentData?>
-            ) {
-                testing.text = response.body().toString()
-            }
-        })
+//        Network.data.getWeather().enqueue(object : Callback<CurrentData?> {
+//            override fun onFailure(call: Call<CurrentData?>, t: Throwable) {
+//                testing.text = t.localizedMessage
+//            }
+//
+//            override fun onResponse(
+//                call: Call<CurrentData?>,
+//                response: Response<CurrentData?>
+//            ) {
+//                testing.text = response.body().toString()
+//            }
+//        })
 
     }
 

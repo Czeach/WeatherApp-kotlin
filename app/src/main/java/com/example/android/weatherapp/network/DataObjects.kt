@@ -26,7 +26,6 @@ fun NetworkCurrentDataContainer.asDomainModel(): List<CurrentData> {
 fun NetworkCurrentDataContainer.asDatabaseModel(): Array<DatabaseCurrentData> {
     return currentData.map {
         DatabaseCurrentData(
-
             count = it.count,
             data = it.data
         )

@@ -1,222 +1,222 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <TextView
-        android:id="@+id/testing"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        />
-
-    </FrameLayout>
-
-    <!--<layout-->
+<!--<FrameLayout-->
 <!--    xmlns:android="http://schemas.android.com/apk/res/android"-->
 <!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
 <!--    xmlns:tools="http://schemas.android.com/tools"-->
-<!--    tools:context=".ui.current.CurrentFragment">-->
-<!--    -->
-<!--    <data>-->
-<!--        <variable-->
-<!--            name="currenntFragmentViewModel"-->
-<!--            type="com.example.android.weatherapp.viewModel.CurrentViewModel" />-->
-<!--    </data>-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent">-->
 
-<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:background="@android:color/background_dark">-->
+<!--    <TextView-->
+<!--        android:id="@+id/testing"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:textSize="16sp"-->
+<!--        />-->
 
-<!--        <androidx.appcompat.widget.Toolbar-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:id="@+id/toolbar"-->
-<!--            android:background="?colorPrimary"-->
-<!--            android:theme="@style/ToolbarTheme"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent">-->
+<!--    </FrameLayout>-->
 
-<!--            <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:paddingTop="10dp">-->
+    <layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.current.CurrentFragment">
 
+    <data>
+        <variable
+            name="currenntFragmentViewModel"
+            type="com.example.android.weatherapp.viewModel.CurrentViewModel" />
+    </data>
 
-<!--                <ImageButton-->
-<!--                    android:id="@+id/search_button"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginStart="8dp"-->
-<!--                    android:background="?android:selectableItemBackground"-->
-<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                    app:layout_constraintStart_toStartOf="parent"-->
-<!--                    app:layout_constraintTop_toTopOf="parent"-->
-<!--                    app:srcCompat="@drawable/ic_search_24dp" />-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/background_dark">
 
-<!--                <ImageButton-->
-<!--                    android:id="@+id/settings_button"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginEnd="24dp"-->
-<!--                    android:background="?android:selectableItemBackground"-->
-<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                    app:layout_constraintEnd_toEndOf="parent"-->
-<!--                    app:layout_constraintTop_toTopOf="parent"-->
-<!--                    app:srcCompat="@drawable/two_lines" />-->
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/toolbar"
+            android:background="?colorPrimary"
+            android:theme="@style/ToolbarTheme"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-<!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
-
-<!--        </androidx.appcompat.widget.Toolbar>-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/state"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginStart="16dp"-->
-<!--            android:layout_marginTop="8dp"-->
-<!--            android:text="Lagos,"-->
-<!--            android:textColor="@color/primary"-->
-<!--            android:textSize="40sp"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/toolbar" />-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/country"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Nigeria"-->
-<!--            android:textColor="@color/primary"-->
-<!--            android:textSize="40sp"-->
-<!--            app:layout_constraintStart_toStartOf="@+id/state"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/state" />-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/date_and_time"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="6:30pm - Monday, 24 Dec 2016"-->
-<!--            android:textColor="@color/secondary"-->
-<!--            android:textSize="16sp"-->
-<!--            app:layout_constraintStart_toStartOf="@+id/state"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/country" />-->
-
-<!--        <FrameLayout-->
-<!--            android:id="@+id/frameLayout"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="80dp"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/date_and_time">-->
-
-<!--            <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="match_parent">-->
-
-<!--                <FrameLayout-->
-<!--                    android:id="@+id/frameLayout2"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    app:layout_constraintEnd_toEndOf="parent"-->
-<!--                    app:layout_constraintStart_toStartOf="parent"-->
-<!--                    app:layout_constraintTop_toTopOf="parent">-->
-
-<!--                    <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="match_parent">-->
-
-<!--                        <ImageView-->
-<!--                            android:id="@+id/weather_image"-->
-<!--                            android:layout_width="80dp"-->
-<!--                            android:layout_height="80dp"-->
-<!--                            android:src="@android:drawable/ic_menu_report_image"-->
-<!--                            app:layout_constraintBottom_toBottomOf="@+id/temperature"-->
-<!--                            app:layout_constraintStart_toStartOf="parent"-->
-<!--                            app:layout_constraintTop_toTopOf="@+id/temperature" />-->
-
-<!--                        <TextView-->
-<!--                            android:id="@+id/temperature"-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_marginStart="16dp"-->
-<!--                            android:text="56°"-->
-<!--                            android:textColor="@color/primary"-->
-<!--                            android:textSize="90sp"-->
-<!--                            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                            app:layout_constraintEnd_toEndOf="parent"-->
-<!--                            app:layout_constraintStart_toEndOf="@+id/weather_image"-->
-<!--                            app:layout_constraintTop_toTopOf="parent"-->
-<!--                            app:layout_constraintVertical_bias="1.0" />-->
-<!--                    </androidx.constraintlayout.widget.ConstraintLayout>-->
-<!--                </FrameLayout>-->
-
-<!--                <TextView-->
-<!--                    android:id="@+id/weather_state"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginBottom="16dp"-->
-<!--                    android:text="Raining"-->
-<!--                    android:textColor="@color/secondary"-->
-<!--                    android:textSize="24sp"-->
-<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                    app:layout_constraintEnd_toEndOf="parent"-->
-<!--                    app:layout_constraintStart_toStartOf="parent"-->
-<!--                    app:layout_constraintTop_toBottomOf="@+id/frameLayout2" />-->
-
-<!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
-
-<!--        </FrameLayout>-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp">
 
 
-<!--        <TextView-->
-<!--            android:id="@+id/today"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="60dp"-->
-<!--            android:text="Today"-->
-<!--            android:textColor="@color/primary"-->
-<!--            android:textSize="18sp"-->
-<!--            android:background="?android:selectableItemBackground"-->
-<!--            app:layout_constraintStart_toStartOf="@+id/date_and_time"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/frameLayout" />-->
+                <ImageButton
+                    android:id="@+id/search_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:background="?android:selectableItemBackground"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_search_24dp" />
 
-<!--        <TextView-->
-<!--            android:id="@+id/future_days"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginStart="32dp"-->
-<!--            android:drawableEnd="@drawable/ic_arrow_forward_black_24dp"-->
-<!--            android:drawablePadding="8dp"-->
-<!--            android:text="Next 7 Days"-->
-<!--            android:textColor="@color/secondary"-->
-<!--            android:textSize="18sp"-->
-<!--            android:background="?android:selectableItemBackground"-->
-<!--            app:layout_constraintStart_toEndOf="@+id/today"-->
-<!--            app:layout_constraintTop_toTopOf="@+id/today" />-->
+                <ImageButton
+                    android:id="@+id/settings_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="24dp"
+                    android:background="?android:selectableItemBackground"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/two_lines" />
 
-<!--        <androidx.cardview.widget.CardView-->
-<!--            android:id="@+id/details_cardview"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="150dp"-->
-<!--            android:layout_marginStart="16dp"-->
-<!--            android:layout_marginTop="32dp"-->
-<!--            android:layout_marginEnd="16dp"-->
-<!--            android:alpha="0.5"-->
-<!--            app:cardBackgroundColor="@color/semiTransparentColor"-->
-<!--            app:cardCornerRadius="15dp"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/future_days">-->
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-<!--        </androidx.cardview.widget.CardView>-->
+        </androidx.appcompat.widget.Toolbar>
 
-<!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
+        <TextView
+            android:id="@+id/state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="Lagos,"
+            android:textColor="@color/primary"
+            android:textSize="40sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
-<!--</layout>-->
+        <TextView
+            android:id="@+id/country"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nigeria"
+            android:textColor="@color/primary"
+            android:textSize="40sp"
+            app:layout_constraintStart_toStartOf="@+id/state"
+            app:layout_constraintTop_toBottomOf="@+id/state" />
+
+        <TextView
+            android:id="@+id/date_and_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6:30pm - Monday, 24 Dec 2016"
+            android:textColor="@color/secondary"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/state"
+            app:layout_constraintTop_toBottomOf="@+id/country" />
+
+        <FrameLayout
+            android:id="@+id/frameLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/date_and_time">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <FrameLayout
+                    android:id="@+id/frameLayout2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/weather_image"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:src="@android:drawable/ic_menu_report_image"
+                            app:layout_constraintBottom_toBottomOf="@+id/temperature"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/temperature" />
+
+                        <TextView
+                            android:id="@+id/temperature"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:text="56°"
+                            android:textColor="@color/primary"
+                            android:textSize="90sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/weather_image"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="1.0" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/weather_state"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="Raining"
+                    android:textColor="@color/secondary"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/frameLayout2" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </FrameLayout>
+
+
+        <TextView
+            android:id="@+id/today"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:text="Today"
+            android:textColor="@color/primary"
+            android:textSize="18sp"
+            android:background="?android:selectableItemBackground"
+            app:layout_constraintStart_toStartOf="@+id/date_and_time"
+            app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
+
+        <TextView
+            android:id="@+id/future_days"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:drawableEnd="@drawable/ic_arrow_forward_black_24dp"
+            android:drawablePadding="8dp"
+            android:text="Next 7 Days"
+            android:textColor="@color/secondary"
+            android:textSize="18sp"
+            android:background="?android:selectableItemBackground"
+            app:layout_constraintStart_toEndOf="@+id/today"
+            app:layout_constraintTop_toTopOf="@+id/today" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/details_cardview"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:alpha="0.5"
+            app:cardBackgroundColor="@color/semiTransparentColor"
+            app:cardCornerRadius="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/future_days">
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
