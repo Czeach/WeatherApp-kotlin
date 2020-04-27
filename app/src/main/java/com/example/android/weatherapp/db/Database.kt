@@ -3,8 +3,6 @@ package com.example.android.weatherapp.db
 import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.example.android.weatherapp.models.CurrentWeather
-import retrofit2.Call
 
 
 @Dao

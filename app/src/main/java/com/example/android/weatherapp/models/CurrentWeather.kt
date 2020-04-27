@@ -2,25 +2,31 @@ package com.example.android.weatherapp.models
 
 
 import androidx.room.Embedded
+import androidx.room.PrimaryKey
+
+
+const val PRIMARY_KEY = 1
 
 data class CurrentWeather(
-    val base: String,
+    @PrimaryKey(autoGenerate = false)
+    var primaryKey: Int = PRIMARY_KEY,
+    var base: String? = null,
     @Embedded(prefix = "clouds_")
-    val clouds: Clouds,
-    val cod: Int,
+    var clouds: Clouds? = null,
+    var cod: Int? = null,
     @Embedded(prefix = "coord_")
-    val coord: Coord,
-    val dt: Int,
-    val id: Int,
+    var coord: Coord? = null,
+    var dt: Int? = null,
+    var id: Int? = null,
     @Embedded(prefix = "main_")
-    val main: Main,
-    val name: String,
+    var main: Main? = null,
+    var name: String? = null,
     @Embedded(prefix = "sys_")
-    val sys: Sys,
-    val timezone: Int,
-    val visibility: Int,
+    var sys: Sys? = null,
+    var timezone: Int? = null,
+    var visibility: Int? = null,
     @Embedded(prefix = "weather_")
-    val weather: List<Weather>,
+    var weather: List<Weather>? = null,
     @Embedded(prefix = "wind_")
-    val wind: Wind
+    var wind: Wind? = null
 )

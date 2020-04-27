@@ -4,6 +4,8 @@ package com.example.android.weatherapp.models
 import com.google.gson.annotations.SerializedName
 
 data class Wind(
-    val deg: Int,
-    val speed: Double
+    var deg: Int? = null,
+    var speed: Double? = null
 )
+
+

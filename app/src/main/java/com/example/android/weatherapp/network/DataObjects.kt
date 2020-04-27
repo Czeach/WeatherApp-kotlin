@@ -1,39 +1,44 @@
 package com.example.android.weatherapp.network
 
 import androidx.room.Embedded
+import com.example.android.weatherapp.db.Clouds
+import com.example.android.weatherapp.db.Coord
+import com.example.android.weatherapp.db.CurrentWeather
 import com.example.android.weatherapp.db.DatabaseCurrentWeather
-import com.example.android.weatherapp.models.*
-import com.google.gson.annotations.JsonAdapter
+import com.example.android.weatherapp.db.Main
+import com.example.android.weatherapp.db.Sys
+import com.example.android.weatherapp.db.Weather
+import com.example.android.weatherapp.db.Wind
 
 
 data class NetworkWeatherContainer(val weather: List<NetworkWeather>)
 
 
 data class NetworkWeather(
-    val base: String,
+    var base: String,
     @Embedded(prefix = "clouds_")
-    val clouds: Clouds,
-    val cod: Int,
+    var clouds: Clouds,
+    var cod: Int,
     @Embedded(prefix = "coord_")
-    val coord: Coord,
-    val dt: Int,
-    val id: Int,
+    var coord: Coord,
+    var dt: Int,
+    var id: Int,
     @Embedded(prefix = "main_")
-    val main: Main,
-    val name: String,
+    var main: Main,
+    var name: String,
     @Embedded(prefix = "sys_")
-    val sys: Sys,
-    val timezone: Int,
-    val visibility: Int,
+    var sys: Sys,
+    var timezone: Int,
+    var visibility: Int,
     @Embedded(prefix = "weather_")
-    val weather: List<Weather>,
+    var weather: List<Weather>,
     @Embedded(prefix = "wind_")
-    val wind: Wind
+    var wind: Wind
 )
 
 fun NetworkWeatherContainer.asDomainModel(): List<CurrentWeather> {
     return weather.map {
-        CurrentWeather(
+        com.example.android.weatherapp.db.CurrentWeather(
             base = it.base,
             clouds = it.clouds,
             cod = it.cod,

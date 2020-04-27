@@ -1,6 +1,6 @@
 package com.example.android.weatherapp.network
 
-import com.example.android.weatherapp.models.CurrentWeather
+import com.example.android.weatherapp.db.CurrentWeather
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import retrofit2.Call
 import retrofit2.Retrofit

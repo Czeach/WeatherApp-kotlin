@@ -5,54 +5,48 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.example.android.weatherapp.models.*
 
-const val PRIMARY_KEY = 1
 
 @Entity(tableName = "current_weather")
 data class DatabaseCurrentWeather constructor(
     @PrimaryKey(autoGenerate = false)
     var primaryKey: Int = PRIMARY_KEY,
-    val base: String,
+    var base: String? = null,
     @Embedded(prefix = "clouds_")
-    val clouds: Clouds?,
-    val cod: Int,
+    var clouds: Clouds? = null,
+    var cod: Int? = null,
     @Embedded(prefix = "coord_")
-    val coord: Coord?,
-    val dt: Int,
-    val id: Int,
+    var coord: Coord? = null,
+    var dt: Int? = null,
+    var id: Int? = null,
     @Embedded(prefix = "main_")
-    val main: Main?,
-    val name: String,
+    var main: Main? =  null,
+    var name: String? = null,
     @Embedded(prefix = "sys_")
-    val sys: Sys?,
-    val timezone: Int,
-    val visibility: Int,
+    var sys: Sys? = null,
+    var timezone: Int? = null,
+    var visibility: Int? = null,
     @Embedded(prefix = "weather_")
-    val weather: List<Weather>?,
+    var weather: List<Weather>? = null,
     @Embedded(prefix = "wind_")
-    val wind: Wind?
-) {
-    constructor(): this(
-        0,"",null,0,null, 0, 0, null,"",null,
-        0, 0, null, null
-    )
-}
+    var wind: Wind? = null
+)
 
 fun List<DatabaseCurrentWeather>.asDomainModel(): List<CurrentWeather> {
     return map {
         CurrentWeather(
-            base = it.base,
-            clouds = it.clouds!!,
-            cod = it.cod,
-            coord = it.coord!!,
-            dt = it.dt,
-            id = it.id,
-            main = it.main!!,
-            name = it.name,
-            sys = it.sys!!,
-            timezone = it.timezone,
-            visibility = it.visibility,
-            weather = it.weather!!,
-            wind = it.wind!!
+            base = it.base!!,
+            clouds = it.clouds,
+            cod = it.cod!!,
+            coord = it.coord,
+            dt = it.dt!!,
+            id = it.id!!,
+            main = it.main,
+            name = it.name!!,
+            sys = it.sys,
+            timezone = it.timezone!!,
+            visibility = it.visibility!!,
+            weather = it.weather,
+            wind = it.wind
         )
     }
 }
