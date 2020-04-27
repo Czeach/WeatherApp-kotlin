@@ -29,6 +29,4 @@ data class CurrentWeather(
     var weather: List<Weather>? = null,
     @Embedded(prefix = "wind_")
     var wind: Wind? = null
-) {
-    
-}
+)
