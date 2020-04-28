@@ -5,10 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.example.android.weatherapp.R
 import com.example.android.weatherapp.databinding.CurrentFragmentBinding
-import com.example.android.weatherapp.models.CurrentData
 import com.example.android.weatherapp.network.Network
 import com.example.android.weatherapp.viewModel.CurrentViewModel
 import kotlinx.android.synthetic.main.current_fragment.*
@@ -34,9 +34,13 @@ class CurrentFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         // instantiate view binding
-        val binding = CurrentFragmentBinding.inflate(inflater)
+        val binding: CurrentFragmentBinding = DataBindingUtil.inflate(
+            inflater, R.layout.current_fragment, container, false
+        )
 
+        binding.setLifecycleOwner(viewLifecycleOwner)
 
+        binding.currentFragmentViewModel = viewModel
 //        val futureDays = binding.futureDays
 //        futureDays.setOnClickListener {
 //            findNavController().navigate(R.id.futureFragment, null)

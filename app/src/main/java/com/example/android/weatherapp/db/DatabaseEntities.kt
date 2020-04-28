@@ -3,21 +3,32 @@ package com.example.android.weatherapp.db
 import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.example.android.weatherapp.models.CurrentData
-import com.example.android.weatherapp.models.Data
+import com.example.android.weatherapp.models.Current
+import com.example.android.weatherapp.models.Daily
+import com.example.android.weatherapp.models.Hourly
+import com.example.android.weatherapp.models.WeatherData
 
-@Entity(tableName = "current_data")
-data class DatabaseCurrentData constructor(
+@Entity(tableName = "weather_data")
+data class DatabaseWeatherData constructor(
     @PrimaryKey
-    val count: Int,
-    val data: List<Data>
+    val primaryKey: Int,
+    val current: List<Current>?,
+    val daily: List<Daily>?,
+    val hourly: List<Hourly>?,
+    val lat: Double?,
+    val lon: Double?,
+    val timezone: String?
 )
 
-fun List<DatabaseCurrentData>.asDomainModel(): List<CurrentData> {
+fun List<DatabaseWeatherData?>.asDomainModel(): List<WeatherData?> {
     return map {
-        CurrentData(
-            count = it.count,
-            data = it.data
+        WeatherData(
+            current = it?.current,
+            daily = it?.daily,
+            hourly = it?.hourly,
+            lat = it?.lat,
+            lon = it?.lon,
+            timezone = it?.timezone
         )
     }
 }

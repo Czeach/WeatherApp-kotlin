@@ -24,7 +24,7 @@
 
     <data>
         <variable
-            name="currenntFragmentViewModel"
+            name="currentFragmentViewModel"
             type="com.example.android.weatherapp.viewModel.CurrentViewModel" />
     </data>
 

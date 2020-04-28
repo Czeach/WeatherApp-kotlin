@@ -3,7 +3,7 @@ package com.example.android.weatherapp.viewModel
 import android.app.Application
 import androidx.lifecycle.*
 import com.example.android.weatherapp.db.getDatabase
-import com.example.android.weatherapp.repository.CurrentDataRepository
+import com.example.android.weatherapp.repository.WeatherDataRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -33,25 +33,26 @@ class CurrentViewModel(application: Application): AndroidViewModel(application) 
 
     init {
         viewModelScope.launch {
-            currentDataRepository.RefreshCurrentData()
+//            weatherDataRepository.refreshCurrentData()
+            refreshDataFromRepo()
         }
     }
 
     private val database = getDatabase(application)
 
     // ViewModel will fetch results from this data source
-    private val currentDataRepository = CurrentDataRepository(database)
+    private val weatherDataRepository = WeatherDataRepository(database)
 
-    val currentDataList = currentDataRepository.currentData
+    private val weatherDataList = weatherDataRepository.currentData
 
-    private fun RefreshDataFromRepo() {
+    private fun refreshDataFromRepo() {
         viewModelScope.launch {
             try {
-                currentDataRepository.RefreshCurrentData()
+                weatherDataRepository.refreshCurrentData()
                 _eventNetworkError.value = false
                 _isNetworkErrorShown.value = false
             } catch(networkError: IOException) {
-                if(currentDataList.value.isNullOrEmpty())
+                if(weatherDataList.value.isNullOrEmpty())
                     _eventNetworkError.value = true
             }
         }

@@ -7,30 +7,30 @@ import com.example.android.weatherapp.converter.Converters
 
 
 @Dao
-interface CurrentDataDao {
-    @Query("select * from current_data")
-    fun getCurrentWeather(): LiveData<List<DatabaseCurrentData>>
+interface WeatherDataDao {
+    @Query("select * from weather_data")
+    fun getWeatherData(): LiveData<List<DatabaseWeatherData>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun upsert(vararg currentData: DatabaseCurrentData)
+    fun upsert(vararg currentData: DatabaseWeatherData?)
 }
 
 @Database(
-    entities = [DatabaseCurrentData::class],
+    entities = [DatabaseWeatherData::class],
     version = 1
 )
 @TypeConverters(Converters::class)
-abstract class CurrentDataDatabase: RoomDatabase() {
-    abstract val currentDataDao: CurrentDataDao
+abstract class WeatherDataDatabase: RoomDatabase() {
+    abstract val weatherDataDao: WeatherDataDao
 }
 
-    private lateinit var INSTANCE: CurrentDataDatabase
+    private lateinit var INSTANCE: WeatherDataDatabase
 
-    fun getDatabase(context: Context): CurrentDataDatabase {
-        synchronized(CurrentDataDatabase::class.java) {
+    fun getDatabase(context: Context): WeatherDataDatabase {
+        synchronized(WeatherDataDatabase::class.java) {
             if (!::INSTANCE.isInitialized) {
                 INSTANCE = Room.databaseBuilder(context.applicationContext,
-                    CurrentDataDatabase::class.java,
+                    WeatherDataDatabase::class.java,
                     "current_data").build()
             }
         }

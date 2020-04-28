@@ -2,23 +2,23 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "151dc31fdf34154fc857b1fd5313f9c8",
+    "identityHash": "ad98c3931a2a5c561c982e76b11dd34a",
     "entities": [
       {
         "tableName": "current_data",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`count` INTEGER NOT NULL, `data` TEXT NOT NULL, PRIMARY KEY(`count`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`count` INTEGER, `data` TEXT, PRIMARY KEY(`count`))",
         "fields": [
           {
             "fieldPath": "count",
             "columnName": "count",
             "affinity": "INTEGER",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "data",
             "columnName": "data",
             "affinity": "TEXT",
-            "notNull": true
+            "notNull": false
           }
         ],
         "primaryKey": {
@@ -34,7 +34,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '151dc31fdf34154fc857b1fd5313f9c8')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'ad98c3931a2a5c561c982e76b11dd34a')"
     ]
   }
 }

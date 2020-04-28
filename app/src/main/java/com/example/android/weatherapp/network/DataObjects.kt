@@ -1,33 +1,48 @@
 package com.example.android.weatherapp.network
 
-import androidx.room.PrimaryKey
-import com.example.android.weatherapp.db.DatabaseCurrentData
-import com.example.android.weatherapp.models.CurrentData
-import com.example.android.weatherapp.models.Data
+import com.example.android.weatherapp.db.DatabaseWeatherData
+import com.example.android.weatherapp.models.Current
+import com.example.android.weatherapp.models.Daily
+import com.example.android.weatherapp.models.Hourly
+import com.example.android.weatherapp.models.WeatherData
 
-data class NetworkCurrentDataContainer(
-    val currentData: List<NetworkCurrentData>
+data class NetworkWeatherDataContainer(
+    val currentData: List<NetworkWeatherData>?
 )
 
-data class NetworkCurrentData(
-    val count: Int,
-    val data: List<Data>
+data class NetworkWeatherData(
+    val primaryKey: Int,
+    val current: List<Current>?,
+    val daily: List<Daily>?,
+    val hourly: List<Hourly>?,
+    val lat: Double?,
+    val lon: Double?,
+    val timezone: String?
 )
 
-fun NetworkCurrentDataContainer.asDomainModel(): List<CurrentData> {
-    return currentData.map {
-        CurrentData(
-            count = it.count,
-            data = it.data
+fun NetworkWeatherDataContainer.asDomainModel(): List<WeatherData> {
+    return currentData!!.map {
+        WeatherData(
+            current = it.current,
+            daily = it.daily,
+            hourly = it.hourly,
+            lat = it.lat,
+            lon = it.lon,
+            timezone = it.timezone
         )
     }
 }
 
-fun NetworkCurrentDataContainer.asDatabaseModel(): Array<DatabaseCurrentData> {
-    return currentData.map {
-        DatabaseCurrentData(
-            count = it.count,
-            data = it.data
+fun NetworkWeatherDataContainer.asDatabaseModel(): Array<DatabaseWeatherData?> {
+    return currentData!!.map {
+        DatabaseWeatherData(
+            primaryKey = it.primaryKey,
+            current = it.current,
+            daily = it.daily,
+            hourly = it.hourly,
+            lat = it.lat,
+            lon = it.lon,
+            timezone = it.timezone
         )
     }.toTypedArray()
 }
