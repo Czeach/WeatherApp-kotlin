@@ -11,7 +11,7 @@ import com.example.android.weatherapp.models.WeatherData
 @Entity(tableName = "weather_data")
 data class DatabaseWeatherData constructor(
     @PrimaryKey
-    val primaryKey: Int,
+    val primaryKey: Int = 1,
     val current: List<Current>?,
     val daily: List<Daily>?,
     val hourly: List<Hourly>?,

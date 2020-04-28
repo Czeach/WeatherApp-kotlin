@@ -11,7 +11,7 @@ data class NetworkWeatherDataContainer(
 )
 
 data class NetworkWeatherData(
-    val primaryKey: Int,
+    val primaryKey: Int = 1,
     val current: List<Current>?,
     val daily: List<Daily>?,
     val hourly: List<Hourly>?,
