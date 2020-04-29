@@ -33,7 +33,7 @@ class CurrentViewModel(application: Application): AndroidViewModel(application) 
 
     init {
         viewModelScope.launch {
-//            weatherDataRepository.refreshCurrentData()
+//            weatherDataRepository.refreshWeatherData()
             refreshDataFromRepo()
         }
     }
@@ -48,7 +48,7 @@ class CurrentViewModel(application: Application): AndroidViewModel(application) 
     private fun refreshDataFromRepo() {
         viewModelScope.launch {
             try {
-                weatherDataRepository.refreshCurrentData()
+                weatherDataRepository.refreshWeatherData()
                 _eventNetworkError.value = false
                 _isNetworkErrorShown.value = false
             } catch(networkError: IOException) {

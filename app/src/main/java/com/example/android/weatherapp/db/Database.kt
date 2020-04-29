@@ -12,7 +12,7 @@ interface WeatherDataDao {
     fun getWeatherData(): LiveData<List<DatabaseWeatherData>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun upsert(vararg currentData: DatabaseWeatherData?)
+    fun upsert(vararg currentData: DatabaseWeatherData)
 }
 
 @Database(

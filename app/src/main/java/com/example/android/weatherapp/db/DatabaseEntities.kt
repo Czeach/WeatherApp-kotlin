@@ -12,23 +12,23 @@ import com.example.android.weatherapp.models.WeatherData
 data class DatabaseWeatherData constructor(
     @PrimaryKey
     val primaryKey: Int = 1,
-    val current: List<Current>?,
-    val daily: List<Daily>?,
-    val hourly: List<Hourly>?,
-    val lat: Double?,
-    val lon: Double?,
-    val timezone: String?
+    val current: List<Current>,
+    val daily: List<Daily>,
+    val hourly: List<Hourly>,
+    val lat: Double,
+    val lon: Double,
+    val timezone: String
 )
 
-fun List<DatabaseWeatherData?>.asDomainModel(): List<WeatherData?> {
+fun List<DatabaseWeatherData>.asDomainModel(): List<WeatherData> {
     return map {
         WeatherData(
-            current = it?.current,
-            daily = it?.daily,
-            hourly = it?.hourly,
-            lat = it?.lat,
-            lon = it?.lon,
-            timezone = it?.timezone
+            current = it.current,
+            daily = it.daily,
+            hourly = it.hourly,
+            lat = it.lat,
+            lon = it.lon,
+            timezone = it.timezone
         )
     }
 }

@@ -5,22 +5,22 @@ import androidx.room.Embedded
 import com.google.gson.annotations.SerializedName
 
 data class Daily(
-    val clouds: Int?,
+    val clouds: Int,
     @SerializedName("dew_point")
-    val dewPoint: Double?,
-    val dt: Int?,
+    val dewPoint: Double,
+    val dt: Int,
     @SerializedName("feels_like")
-    val feelsLike: FeelsLike?,
-    val humidity: Int?,
-    val pressure: Int?,
-    val rain: Double?,
-    val sunrise: Int?,
-    val sunset: Int?,
-    val temp: Temp?,
-    val uvi: Double?,
-    val weather: List<WeatherX>?,
+    val feelsLike: FeelsLike,
+    val humidity: Int,
+    val pressure: Int,
+    val rain: Double,
+    val sunrise: Int,
+    val sunset: Int,
+    val temp: Temp,
+    val uvi: Double,
+    val weather: List<WeatherX>,
     @SerializedName("wind_deg")
-    val windDeg: Int?,
+    val windDeg: Int,
     @SerializedName("wind_speed")
-    val windSpeed: Double?
+    val windSpeed: Double
 )

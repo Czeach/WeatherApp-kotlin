@@ -13,18 +13,18 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
 
-class WeatherDataRepository(private val database: WeatherDataDatabase?) {
+class WeatherDataRepository(private val database: WeatherDataDatabase) {
 
     val currentData: LiveData<List<WeatherData?>> =
-        Transformations.map(database?.weatherDataDao!!.getWeatherData()) {
+        Transformations.map(database.weatherDataDao.getWeatherData()) {
             it.asDomainModel()
         }
 
-    suspend fun refreshCurrentData() {
+    suspend fun refreshWeatherData() {
         withContext(Dispatchers.IO) {
-            Log.e("TAG","refresh current data is called")
+            Log.e("TAG","refresh weather data is called")
             val weatherDataList = Network.data.getWeather().await()
-            database?.weatherDataDao?.upsert(*weatherDataList.asDatabaseModel())
+            database.weatherDataDao.upsert(*weatherDataList.asDatabaseModel())
         }
     }
 }

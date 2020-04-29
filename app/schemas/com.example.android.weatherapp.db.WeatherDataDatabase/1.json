@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "c018ee316ae58821236788999b8a7f41",
+    "identityHash": "0f67f4987a4c36b3058cfd44da76e5a3",
     "entities": [
       {
         "tableName": "weather_data",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`primaryKey` INTEGER NOT NULL, `current` TEXT, `daily` TEXT, `hourly` TEXT, `lat` REAL, `lon` REAL, `timezone` TEXT, PRIMARY KEY(`primaryKey`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`primaryKey` INTEGER NOT NULL, `current` TEXT NOT NULL, `daily` TEXT NOT NULL, `hourly` TEXT NOT NULL, `lat` REAL NOT NULL, `lon` REAL NOT NULL, `timezone` TEXT NOT NULL, PRIMARY KEY(`primaryKey`))",
         "fields": [
           {
             "fieldPath": "primaryKey",
@@ -18,37 +18,37 @@
             "fieldPath": "current",
             "columnName": "current",
             "affinity": "TEXT",
-            "notNull": false
+            "notNull": true
           },
           {
             "fieldPath": "daily",
             "columnName": "daily",
             "affinity": "TEXT",
-            "notNull": false
+            "notNull": true
           },
           {
             "fieldPath": "hourly",
             "columnName": "hourly",
             "affinity": "TEXT",
-            "notNull": false
+            "notNull": true
           },
           {
             "fieldPath": "lat",
             "columnName": "lat",
             "affinity": "REAL",
-            "notNull": false
+            "notNull": true
           },
           {
             "fieldPath": "lon",
             "columnName": "lon",
             "affinity": "REAL",
-            "notNull": false
+            "notNull": true
           },
           {
             "fieldPath": "timezone",
             "columnName": "timezone",
             "affinity": "TEXT",
-            "notNull": false
+            "notNull": true
           }
         ],
         "primaryKey": {
@@ -64,7 +64,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'c018ee316ae58821236788999b8a7f41')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '0f67f4987a4c36b3058cfd44da76e5a3')"
     ]
   }
 }
