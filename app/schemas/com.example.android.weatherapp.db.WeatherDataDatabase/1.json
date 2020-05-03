@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "0f67f4987a4c36b3058cfd44da76e5a3",
+    "identityHash": "c620788ee6094d2fb65246c4e3551e1d",
     "entities": [
       {
         "tableName": "weather_data",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`primaryKey` INTEGER NOT NULL, `current` TEXT NOT NULL, `daily` TEXT NOT NULL, `hourly` TEXT NOT NULL, `lat` REAL NOT NULL, `lon` REAL NOT NULL, `timezone` TEXT NOT NULL, PRIMARY KEY(`primaryKey`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`primaryKey` INTEGER NOT NULL, `daily` TEXT, `hourly` TEXT, `lat` REAL, `lon` REAL, `timezone` TEXT, `current_clouds` INTEGER, `current_dewPoint` REAL, `current_dt` INTEGER, `current_feelsLike` REAL, `current_humidity` INTEGER, `current_pressure` INTEGER, `current_sunrise` INTEGER, `current_sunset` INTEGER, `current_temp` REAL, `current_uvi` REAL, `current_weather` TEXT, `current_windDeg` INTEGER, `current_windSpeed` REAL, PRIMARY KEY(`primaryKey`))",
         "fields": [
           {
             "fieldPath": "primaryKey",
@@ -15,40 +15,112 @@
             "notNull": true
           },
           {
-            "fieldPath": "current",
-            "columnName": "current",
-            "affinity": "TEXT",
-            "notNull": true
-          },
-          {
             "fieldPath": "daily",
             "columnName": "daily",
             "affinity": "TEXT",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "hourly",
             "columnName": "hourly",
             "affinity": "TEXT",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "lat",
             "columnName": "lat",
             "affinity": "REAL",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "lon",
             "columnName": "lon",
             "affinity": "REAL",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "timezone",
             "columnName": "timezone",
             "affinity": "TEXT",
-            "notNull": true
+            "notNull": false
+          },
+          {
+            "fieldPath": "current.clouds",
+            "columnName": "current_clouds",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "current.dewPoint",
+            "columnName": "current_dewPoint",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "current.dt",
+            "columnName": "current_dt",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "current.feelsLike",
+            "columnName": "current_feelsLike",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "current.humidity",
+            "columnName": "current_humidity",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "current.pressure",
+            "columnName": "current_pressure",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "current.sunrise",
+            "columnName": "current_sunrise",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "current.sunset",
+            "columnName": "current_sunset",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "current.temp",
+            "columnName": "current_temp",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "current.uvi",
+            "columnName": "current_uvi",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "current.weather",
+            "columnName": "current_weather",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "current.windDeg",
+            "columnName": "current_windDeg",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "current.windSpeed",
+            "columnName": "current_windSpeed",
+            "affinity": "REAL",
+            "notNull": false
           }
         ],
         "primaryKey": {
@@ -64,7 +136,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '0f67f4987a4c36b3058cfd44da76e5a3')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'c620788ee6094d2fb65246c4e3551e1d')"
     ]
   }
 }

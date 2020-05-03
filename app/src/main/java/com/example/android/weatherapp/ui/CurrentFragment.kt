@@ -1,14 +1,17 @@
 package com.example.android.weatherapp.ui
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.android.weatherapp.R
 import com.example.android.weatherapp.databinding.CurrentFragmentBinding
+import com.example.android.weatherapp.models.WeatherData
 import com.example.android.weatherapp.network.Network
 import com.example.android.weatherapp.viewModel.CurrentViewModel
 import kotlinx.android.synthetic.main.current_fragment.*
@@ -46,7 +49,13 @@ class CurrentFragment : Fragment() {
 //            findNavController().navigate(R.id.futureFragment, null)
 //        }
 
+//        viewModel.weatherData.observe( viewLifecycleOwner, Observer {
+////            testing.text = it.toString()
+//        })
 
+        viewModel.weatherData.observe(viewLifecycleOwner, Observer {
+
+        })
 
         return binding.root
     }
@@ -54,22 +63,16 @@ class CurrentFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-//        Network.data.getWeather().enqueue(object : Callback<CurrentData?> {
-//            override fun onFailure(call: Call<CurrentData?>, t: Throwable) {
+//        Network.data.getWeather().enqueue(object : Callback<WeatherData?> {
+//            override fun onFailure(call: Call<WeatherData?>, t: Throwable) {
 //                testing.text = t.localizedMessage
 //            }
 //
-//            override fun onResponse(
-//                call: Call<CurrentData?>,
-//                response: Response<CurrentData?>
-//            ) {
+//            override fun onResponse(call: Call<WeatherData?>, response: Response<WeatherData?>) {
 //                testing.text = response.body().toString()
 //            }
 //        })
 
     }
-
-
-
 
 }

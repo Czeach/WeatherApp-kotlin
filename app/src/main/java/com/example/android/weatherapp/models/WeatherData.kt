@@ -4,10 +4,10 @@ import androidx.room.Embedded
 
 
 data class WeatherData(
-    val current: List<Current>,
-    val daily: List<Daily>,
-    val hourly: List<Hourly>,
-    val lat: Double,
-    val lon: Double,
-    val timezone: String
+    val current: Current? = null,
+    val daily: List<Daily>? = null,
+    val hourly: List<Hourly>? = null,
+    val lat: Double? = null,
+    val lon: Double? = null,
+    val timezone: String? = null
 )
