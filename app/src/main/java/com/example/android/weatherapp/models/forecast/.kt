@@ -3,7 +3,7 @@ package com.example.android.weatherapp.models.forecast
 
 import com.google.gson.annotations.SerializedName
 
-data class (
+data class Lists(
     val clouds: Int? = null,
     val deg: Int? = null,
     val dt: Int? = null,

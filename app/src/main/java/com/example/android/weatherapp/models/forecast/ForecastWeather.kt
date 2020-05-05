@@ -7,6 +7,7 @@ data class ForecastWeather(
     val city: City? = null,
     val cnt: Int? = null,
     val cod: String? = null,
-    val list: List<>? = null,
+    @SerializedName("list")
+    val list: List<Lists>? = null,
     val message: Double? = null
 )

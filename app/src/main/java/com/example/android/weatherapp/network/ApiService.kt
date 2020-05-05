@@ -10,7 +10,7 @@ import retrofit2.http.Query
 const val API_KEY = "a18494d4eee39d449c841066b7e55685"
 
 // weather url: https://api.openweathermap.org/data/2.5/weather?q=Enugu,Enugu&appid=a18494d4eee39d449c841066b7e55685
-// forecast url: https://api.openweathermap.org/data/2.5/forecast/daily?q=Enugu&appid=a18494d4eee39d449c841066b7e55685&cnt=7&units=metric
+// forecast url: https://api.openweathermap.org/data/2.5/forecast/daily?id=2343279&cnt=7&appid=a18494d4eee39d449c841066b7e55685
 
 // A retrofit service to fetch a data info.
 interface OpenWeatherMapApi {
