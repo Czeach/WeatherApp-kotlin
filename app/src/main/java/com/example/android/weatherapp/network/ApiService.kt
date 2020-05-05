@@ -1,19 +1,34 @@
 package com.example.android.weatherapp.network
 
-import com.example.android.weatherapp.models.WeatherData
+import com.example.android.weatherapp.models.weather.CurrentWeather
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
-import kotlinx.coroutines.Deferred
-import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Query
 
-// BASE_URL = "https://api.openweathermap.org/data/2.5/onecall?lat=6.44&lon=7.49&appid=c71d7cc39b34e871d2c9525737fdd3b8"
+const val API_KEY = "a18494d4eee39d449c841066b7e55685"
+
+// weather url: https://api.openweathermap.org/data/2.5/weather?q=Enugu,Enugu&appid=a18494d4eee39d449c841066b7e55685
+// forecast url: https://api.openweathermap.org/data/2.5/forecast/daily?q=Enugu&appid=a18494d4eee39d449c841066b7e55685&cnt=7&units=metric
 
 // A retrofit service to fetch a data info.
 interface OpenWeatherMapApi {
-    @GET("onecall?lat=6.44&lon=7.49&appid=c71d7cc39b34e871d2c9525737fdd3b8")
-    fun getWeather(): ArrayList<WeatherData>
+
+    // gets weather for a Searched location
+    @GET("weather")
+    fun getSearchedWeather(
+        @Query("q") location: String,
+        @Query("appid") apiKey: String
+    ): CurrentWeather
+
+    // gets weather for the device's location
+    @GET("weather")
+    fun getCurrentWeather(
+        @Query("lat") latitude: String,
+        @Query("lon") longitude: String,
+        @Query("appid") apiKey: String
+    ): CurrentWeather
 }
 
 // this is the main entry point for the network access. Call like `Network.data.getData()`

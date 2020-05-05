@@ -54,7 +54,7 @@ class CurrentFragment : Fragment() {
 //        })
 
         viewModel.weatherData.observe(viewLifecycleOwner, Observer {
-
+            testing.text = it.toString()
         })
 
         return binding.root
